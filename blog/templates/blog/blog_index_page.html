@@ -81,8 +81,8 @@
 
 					<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
 						<div class="flex items-center justify-between">
-							<img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-							<p class="text-gray-600 text-xs md:text-sm">1 MIN READ</p>
+							<img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="{{ request.user.get_full_name }}" src="{{ request.user.wagtail_userprofile.avatar.url }}" alt="{{ request.user.get_full_name }}">
+							<p class="text-gray-600 text-xs md:text-sm">{{post.date}}</p>
 						</div>
 					</div>
 				</div>
@@ -127,8 +127,8 @@
 						</div>
 						<div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
 							<div class="flex items-center justify-between">
-								<img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="Author Name" src="http://i.pravatar.cc/300" alt="Avatar of Author">
-								<p class="text-gray-600 text-xs md:text-sm">1 MIN READ {{post.date}}</p>
+								<img class="w-8 h-8 rounded-full mr-4 avatar" data-tippy-content="{{ request.user.get_full_name }}" src="{{ request.user.wagtail_userprofile.avatar.url }}" alt="{{ request.user.get_full_name }}">
+								<p class="text-gray-600 text-xs md:text-sm">{{post.date}}</p>
 							</div>
 						</div>
 					</div>
