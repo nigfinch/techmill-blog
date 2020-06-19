@@ -4,11 +4,63 @@
 
 {% block body_class %}template-blogpage{% endblock %}
 
+{% block extra_css %}
+<style>
+    h2 {
+        display: block;
+        font-size: 1.5em;
+        margin-top: 0.83em;
+        margin-bottom: 0.83em;
+        margin-left: 0;
+        margin-right: 0;
+        font-weight: bold;
+    }
+    h3 { 
+        display: block;
+        font-size: 1.17em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 0;
+        margin-right: 0;
+        font-weight: bold;
+    }
+    h4 { 
+        display: block;
+        margin-top: 1.33em;
+        margin-bottom: 1.33em;
+        margin-left: 0;
+        margin-right: 0;
+        font-weight: bold;
+    }
+    p { 
+        display: block;
+        font-size: 1.17em;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-left: 0;
+        margin-right: 0;
+        
+    }
+    
+      
+</style>
+
+{% endblock %}
+
 {% block content %}
-    <h1>{{ page.title }}</h1>
-    <p class="meta">{{ page.date }}</p>
+
+{% include "blog/blog_nav.html" %}
+<!--Title-->
+<div class="flex items-center justify-center pt-16 md:pt-16">
+	<div class=" w-1/2 text-center">
+		<h1 class="font-bold text-gray-700 break-normal text-3xl md:text-5xl ">{{page.title}}</h1>
+        <p class="text-sm md:text-base text-blue-500 font-bold">{{ page.date }}</p>
+    </div>
+</div>
 
 
+   
+    
 {% with categories=page.categories.all %}
     {% if categories %}
         <h3>Posted in:</h3>
@@ -23,16 +75,45 @@
     {% endif %}
 {% endwith %}
 
-    <div class="intro">{{ page.intro }}</div>
+<!--image-->
+<div class="container w-full max-w-6xl mx-auto bg-white bg-cover bg-bottom mt-2 rounded" style="background-image:url('/media/original_images/{{page.main_image}}'); height: 75vh;"></div>
+<!-- <div class="container w-full max-w-6xl mx-auto bg-white bg-cover mt-8 rounded">
+   
+</div> -->
 
-    {{ page.body|richtext }}
+	<!--Container-->
+	<div class="container max-w-5xl mx-auto -mt-64">
+		
+		<div class="mx-0 sm:mx-6">
+			
+			<div class="bg-white w-full p-8 md:p-24 text-xl md:text-2xl text-gray-800 leading-normal shadow-lg">
+				
+				<!--Post Content-->
+				
 
-    {% for item in page.gallery_images.all %}
+				<!--Lead Para-->
+				<!-- <p class="text-2xl md:text-3xl mb-5">
+                    👋 Welcome fellow <a class="text-gray-800 hover:text-teal-500 no-underline border-b-2 border-teal-500" href="https://www.tailwindcss.com">Tailwind CSS</a> and 
+                    <a class="text-gray-800 hover:text-teal-500 no-underline border-b-2 border-teal-500" href="https://www.ghost.org">Ghost</a> fan.  This starter template is an attempt to replicate the default Ghost theme 
+                    <a class="text-gray-800 hover:text-teal-500 no-underline border-b-2 border-teal-500" href="https://demo.ghost.io/welcome">"Casper"</a> using Tailwind CSS and vanilla Javascript.
+				</p> -->
+
+    
+                <div class="text-2xl md:text-2xl mb-5 text-gray-800 font-bold font-serif">
+                    {{ page.intro }}
+                </div>
+                <div class="text-xl md:text-base text-base mb-5 text-gray-700 font-serif">
+                     {{ page.body|richtext }}  </div>
+
+
+
+
+    <!-- {% for item in page.gallery_images.all %}
         <div style="float: left; margin: 10px">
             {% image item.image fill-320x240 %}
             <p>{{ item.caption }}</p>
         </div>
-    {% endfor %}
+    {% endfor %} -->
     
     
     {% if page.tags.all.count %}
@@ -44,10 +125,18 @@
     </div>
 {% endif %}
 
-    <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
+  
+      <a href="{{ page.get_parent.url }}">
+      <button class="px-3 flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-blue-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-teal-400">Return >></button></a>
+            </div>
+        </div>
+      {% include "blog/blog_subscribe.html" %}
+    
+    </div>
+    </div>
+    {% include "blog/blog_footer.html" %}
 
-    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
-        Button
-      </button>
+
+
 
 {% endblock %}
