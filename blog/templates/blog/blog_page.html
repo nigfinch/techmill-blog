@@ -3,12 +3,12 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 {% block body_class %}template-blogpage{% endblock %}
-
+<!--Needed to add styles for h2, h3, h4 and p as they are not included in base Tailwind -->
 {% block extra_css %}
 <style>
     h2 {
         display: block;
-        font-size: 1.5em;
+        font-size: 2em;
         margin-top: 0.83em;
         margin-bottom: 0.83em;
         margin-left: 0;
@@ -99,10 +99,10 @@
 				</p> -->
 
     
-                <div class="text-2xl md:text-2xl mb-5 text-gray-800 font-bold font-serif">
+                <!-- <div class="text-2xl md:text-2xl mb-5 text-gray-800 font-bold font-sans">
                     {{ page.intro }}
-                </div>
-                <div class="text-xl md:text-base text-base mb-5 text-gray-700 font-serif">
+                </div> -->
+                <div class="text-xl md:text-base text-base mb-5 text-gray-700 font-sans">
                      {{ page.body|richtext }}  </div>
 
 
@@ -116,6 +116,10 @@
     {% endfor %} -->
     
     
+    {% comment %}
+        
+    
+         %}
     {% if page.tags.all.count %}
     <div class="tags">
         <h3>Tags</h3>
@@ -124,10 +128,13 @@
         {% endfor %}
     </div>
 {% endif %}
+{% endcomment %}
+
+
 
   
       <a href="{{ page.get_parent.url }}">
-      <button class="px-3 flex-1 mt-4 md:mt-0 block md:inline-block appearance-none bg-blue-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-teal-400">Return >></button></a>
+      <button class="px-3 flex-1 mt-2 md:mt-0 block md:inline-block appearance-none bg-blue-500 text-white text-base font-semibold tracking-wider uppercase py-4 rounded shadow hover:bg-teal-400">Back to Blog Index Page</button></a>
             </div>
         </div>
       {% include "blog/blog_subscribe.html" %}
