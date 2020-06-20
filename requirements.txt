@@ -3,4 +3,4 @@ wagtail>=2.8,<2.9
 gunicorn
 django-heroku
 django-tailwind
-whitenoise
+whitenoise==5.1.0
