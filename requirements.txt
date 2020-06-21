@@ -4,7 +4,7 @@ gunicorn
 django-heroku
 django-tailwind
 whitenoise==5.0.1
-# Collectfast==2.1.0  # https://github.com/antonagestam/collectfast
+Collectfast==2.1.0  # https://github.com/antonagestam/collectfast
 sentry-sdk==0.14.4  # https://github.com/getsentry/sentry-python
 
 # Django
