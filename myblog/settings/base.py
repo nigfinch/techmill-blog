@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'blog',
     'tailwind',
     'theme',
-    'storages',
+    # 'storages',
 ]
 
 MIDDLEWARE = [
