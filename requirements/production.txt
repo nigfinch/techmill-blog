@@ -10,3 +10,4 @@ sentry-sdk==0.15.1  # https://github.com/getsentry/sentry-python
 # ------------------------------------------------------------------------------
 django-storages[boto3]==1.9.1  # https://github.com/jschneier/django-storages
 django-anymail[mailgun]==7.1.0  # https://github.com/anymail/django-anymail
+django-heroku

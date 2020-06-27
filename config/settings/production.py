@@ -6,6 +6,7 @@ from sentry_sdk.integrations.logging import LoggingIntegration
 
 from .base import *  # noqa
 from .base import env
+import django_heroku
 
 # GENERAL
 # ------------------------------------------------------------------------------
@@ -209,3 +210,7 @@ sentry_sdk.init(dsn=SENTRY_DSN, integrations=[sentry_logging, DjangoIntegration(
 
 # Your stuff...
 # ------------------------------------------------------------------------------
+
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
